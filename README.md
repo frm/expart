@@ -1,25 +1,18 @@
 # Expart
 
-Expart is a wrapper to [partisan](https://github.com/lasp-lang/partisan)'s
-implementation of the [HyParView protocol](http://asc.di.fct.unl.pt/~jleitao/pdf/dsn07-leitao.pdf).
+*Ceci n'est pas un HyParView.*
 
-## Installation
+This is not a [HyParView protocol](http://asc.di.fct.unl.pt/~jleitao/pdf/dsn07-leitao.pdf) implementation. Expart is simply a wrapper to [partisan](https://github.com/lasp-lang/partisan).
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+## But... why?
 
-  1. Add `expart` to your list of dependencies in `mix.exs`:
+Well, Partisan is much more flexible and supports more protocols. But Partisan's configuration is quite verbose. It also requires you to create a `GenServer` module to pass as callback for received messages. Sometimes it's pretty useful to simply specify a function as a callback instead of writing a specific module.
 
-    ```elixir
-    def deps do
-      [{:expart, "~> 0.1.0"}]
-    end
-    ```
+Expart wraps that logic away and gives you access to the actual communication API in
+a more Elixir friendly manner.
 
-  2. Ensure `expart` is started before your application:
+If you need something more complete, I highly recommend [partisan](https://github.com/lasp-lang/partisan). Otherwise you
+can take a look at the [examples](/examples).
 
-    ```elixir
-    def application do
-      [applications: [:expart]]
-    end
-    ```
-
+Expart is a work in progress™. It still doesn't fully support the complete
+Partisan API. More to come.
