@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+iex --name coord@coordmachine --cookie a_cookie -S mix

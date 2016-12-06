@@ -1,0 +1,10 @@
+%{"bunt": {:hex, :bunt, "0.1.6", "5d95a6882f73f3b9969fdfd1953798046664e6f77ec4e486e6fafc7caad97c6f", [:mix], []},
+  "credo": {:hex, :credo, "0.5.3", "0c405b36e7651245a8ed63c09e2d52c2e2b89b6d02b1570c4d611e0fcbecf4a2", [:mix], [{:bunt, "~> 0.1.6", [hex: :bunt, optional: false]}]},
+  "goldrush": {:git, "git://github.com/DeadZen/goldrush.git", "212299233c7e7eb63a97be2777e1c05ebaa58dbe", [tag: "0.1.8"]},
+  "lager": {:git, "https://github.com/basho/lager", "8187757388c9adc915379caaab36a2f2ca26e944", [tag: "3.2.1"]},
+  "mochiweb": {:git, "https://github.com/mochi/mochiweb.git", "c3fb6aed018d47a9c313daa966657a157d88dbc6", [tag: "v2.12.2"]},
+  "partisan": {:git, "https://github.com/lasp-lang/partisan.git", "90216d6cde21b086f9aa0d2817ea24abdf67777e", []},
+  "ranch": {:git, "https://github.com/extend/ranch.git", "a5d2efcde9a34ad38ab89a26d98ea5335e88625a", [tag: "1.2.1"]},
+  "rand_compat": {:git, "https://github.com/lasp-lang/rand_compat", "4f658110f57bfd1a3e966a7d65b23d5c8f868167", [tag: "master"]},
+  "time_compat": {:git, "https://github.com/lasp-lang/time_compat", "6007f68892104ebb6fa2366cebf9d928d8856273", [tag: "0.0.2"]},
+  "types": {:git, "https://github.com/lasp-lang/types", "c62c6289409f7ffff261210f02b978172a62764c", [tag: "master"]}}
