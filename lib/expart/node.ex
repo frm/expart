@@ -41,10 +41,6 @@ defmodule Expart.Node do
     {:ok, %{}}
   end
 
-  def handle_call(:callback, _from, opts) do
-    {:reply, opts[:callback], opts}
-  end
-
   def handle_call({:connect, coord}, _from, opts) do
     :partisan_config.set(:partisan_peer_service_manager,
                        :partisan_hyparview_peer_service_manager)
@@ -72,8 +68,6 @@ defmodule Expart.Node do
   defp call(args), do: GenServer.call(__MODULE__, args)
 
   defp manager, do: :partisan_peer_service.manager
-
-  defp callback, do: call(:callback)
 
   defp parse_opts(settings) do
     settings
