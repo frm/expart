@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-iex --name coord@coordmachine --cookie a_cookie -S mix
+COORD_MACHINE=${1-"coordmachine"}
+iex --name coord@$COORD_MACHINE --cookie a_cookie -S mix

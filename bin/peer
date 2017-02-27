@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-iex --name peer@peermachine --cookie a_cookie -S mix
+MACHINE_NAME=${1-"peermachine"}
+iex --name peer@$MACHINE_NAME --cookie a_cookie -S mix
