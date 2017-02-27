@@ -29,8 +29,8 @@ defmodule Expart.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:partisan, github: "lasp-lang/partisan"},
-      {:credo, "~> 0.4", only: [:dev, :test]}
+      {:partisan, github: "frmendes/partisan"},
+      {:credo, "~> 0.5", only: [:dev, :test]}
     ]
   end
 
