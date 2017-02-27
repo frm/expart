@@ -4,6 +4,7 @@ defmodule Expart.Mixfile do
   def project do
     [app: :expart,
      version: "0.1.0",
+     description: description,
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -30,6 +31,21 @@ defmodule Expart.Mixfile do
     [
       {:partisan, github: "lasp-lang/partisan"},
       {:credo, "~> 0.4", only: [:dev, :test]}
+    ]
+  end
+
+  defp description do
+    """
+     Expart is simply a wrapper to Partisan's HyParView.
+    """
+  end
+
+    defp package do
+    [
+     name: :expart,
+     files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+     maintainers: ["Fernando Mendes"],
+     links: %{"GitHub" => "https://github.com/frmendes/expart"}
     ]
   end
 end
