@@ -4,11 +4,13 @@ defmodule Expart.Mixfile do
   def project do
     [app: :expart,
      version: "0.1.0",
-     description: description,
+     description: description(),
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     package: package(),
+   ]
   end
 
   # Configuration for the OTP application
@@ -40,7 +42,7 @@ defmodule Expart.Mixfile do
     """
   end
 
-    defp package do
+  defp package do
     [
      name: :expart,
      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
