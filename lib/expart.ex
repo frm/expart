@@ -22,17 +22,17 @@ defmodule Expart do
     do: connect({})
 
   def members do
-    {:ok, view} = manager.members
+    {:ok, view} = manager().members
     view
   end
 
   def broadcast(msg) do
-    members
+    members()
     |> Enum.each(&(send_to &1, msg))
   end
 
   def send_to(name, msg) do
-    manager.forward_message(name, __MODULE__, {:message, msg})
+    manager().forward_message(name, __MODULE__, {:message, msg})
   end
 
   ## GenServer callbacks
@@ -52,7 +52,7 @@ defmodule Expart do
     {:reply, :ok, opts}
   end
 
-  def handle_cast({:setup, settings}, opts) do
+  def handle_cast({:setup, settings}, _) do
     opts = parse_opts(settings)
     {:noreply, opts}
   end
@@ -77,5 +77,4 @@ defmodule Expart do
 
   defp as_func_ref(ref) when is_function(ref), do: ref
   defp as_func_ref(ref) when is_atom(ref), do: &ref.recv/1
-
 end
