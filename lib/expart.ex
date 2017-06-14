@@ -13,10 +13,10 @@ defmodule Expart do
   end
 
   def connect(coord, {_, _, _, _} = ip, port), do:
-    call({:connect, {coord, ip, port}})
+    cast({:connect, {coord, ip, port}})
 
   def connect(coord), do:
-    call({:connect, coord})
+    cast({:connect, coord})
 
   def connect,
     do: connect({})
@@ -41,7 +41,7 @@ defmodule Expart do
     {:ok, %{}}
   end
 
-  def handle_call({:connect, coord}, _from, opts) do
+  def handle_cast({:connect, coord}, opts) do
     :partisan_config.set(:partisan_peer_service_manager,
                        :partisan_hyparview_peer_service_manager)
 
@@ -49,7 +49,7 @@ defmodule Expart do
     :partisan.start
     if opts[:mode] == :peer, do: :partisan_peer_service.join(coord)
 
-    {:reply, :ok, opts}
+    {:noreply, opts}
   end
 
   def handle_cast({:setup, settings}, _) do
@@ -65,7 +65,6 @@ defmodule Expart do
   ## Internal API
 
   defp cast(args), do: GenServer.cast(__MODULE__, args)
-  defp call(args), do: GenServer.call(__MODULE__, args)
 
   defp manager, do: :partisan_peer_service.manager
 
